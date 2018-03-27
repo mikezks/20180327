@@ -8,11 +8,8 @@
 
     <ul class="list-group">
 
-      <li class="list-group-item">
-        <p>Hamburg - Graz</p>
-      </li>
-      <li class="list-group-item">
-        <p>Graz - Hamburg</p>
+      <li *ngFor="let f of flights" class="list-group-item">
+        <p>({{f.id}}) {{f.from}} - {{f.to}}</p>
       </li>
 
     </ul>

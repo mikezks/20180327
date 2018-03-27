@@ -13,6 +13,7 @@ import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SharedModule} from './shared/shared.module';
 import {SidebarComponent} from './sidebar/sidebar.component';
+import { EventService } from "./event.service";
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import {SidebarComponent} from './sidebar/sidebar.component';
     HomeComponent,
     BasketComponent
   ],
-  providers: [],
+  providers: [
+    EventService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

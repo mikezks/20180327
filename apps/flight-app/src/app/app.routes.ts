@@ -13,11 +13,16 @@ export const APP_ROUTES: Routes = [
     component: HomeComponent
   },
   {
+    path: 'basket',
+    component: BasketComponent,
+    outlet: 'aux'
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
-]
+];
 
 export const APP_EXTRA_OPTIONS: ExtraOptions = {
 
-}
+};
