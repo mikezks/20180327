@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
 import {FlightBookingComponent} from './flight-booking.component';
@@ -10,6 +10,7 @@ import {FlightEditComponent} from './flight-edit/flight-edit.component';
 import {FlightSearchComponent} from './flight-search/flight-search.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
 import { FlightTypeaheadComponent } from './flight-typeahead/flight-typeahead.component';
+import { FlightDynamicSearchComponent } from './flight-dynamic-search/flight-dynamic-search.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { FlightTypeaheadComponent } from './flight-typeahead/flight-typeahead.co
     PassengerSearchComponent,
     FlightEditComponent,
     FlightBookingComponent,
-    FlightTypeaheadComponent
+    FlightTypeaheadComponent,
+    FlightDynamicSearchComponent
   ],
   providers: [],
   exports: [

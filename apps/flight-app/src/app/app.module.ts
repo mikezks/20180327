@@ -1,5 +1,4 @@
 import {HttpClientModule} from '@angular/common/http';
-
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
@@ -13,7 +12,7 @@ import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SharedModule} from './shared/shared.module';
 import {SidebarComponent} from './sidebar/sidebar.component';
-import { EventService } from "./event.service";
+import { EventService } from './event.service';
 
 @NgModule({
   imports: [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ReplaySubject } from "rxjs/ReplaySubject";
-import { Observable } from "rxjs/Observable";
-import { Flight } from "@flight-workspace/flight-api";
+import { Flight } from 'libs/flight-api/index';
+import { Observable } from 'rxjs/Observable';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class EventService {
@@ -14,5 +14,4 @@ export class EventService {
   publishFlight(flight: Flight): void {
     this.flightSelectedSubject.next(flight);
   }
-
 }

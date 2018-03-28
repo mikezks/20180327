@@ -21,8 +21,8 @@ export const APP_ROUTES: Routes = [
     path: '**',
     redirectTo: 'home'
   }
-];
+]
 
 export const APP_EXTRA_OPTIONS: ExtraOptions = {
 
-};
+}

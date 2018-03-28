@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Flight} from '../models/flight';
 import {of} from 'rxjs/observable/of';
 import {flights} from '@flight-workspace/flight-api/src/services/flight.data';
-import {delay} from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class FlightService {
