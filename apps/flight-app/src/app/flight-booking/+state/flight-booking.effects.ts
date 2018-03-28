@@ -1,25 +1,19 @@
 import {Injectable} from '@angular/core';
-/*import {Effect, Actions} from '@ngrx/effects';
-import {DataPersistence} from '@nrwl/nx';
-import {of} from 'rxjs/observable/of';
-import 'rxjs/add/operator/switchMap';
-import {FlightBookingState} from './flight-booking.interfaces';
-import {LoadData, DataLoaded} from './flight-booking.actions';*/
+import {Effect, Actions} from '@ngrx/effects';
+import { FlightsLoadAction, FlightsLoadedAction } from './flight-booking.actions';
+import { FlightService } from '@flight-workspace/flight-api';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class FlightBookingEffects {
-  /*@Effect() loadData = this.dataPersistence.fetch('LOAD_DATA', {
-    run: (action: LoadData, state: FlightBookingState) => {
-      return {
-        type: 'DATA_LOADED',
-        payload: {}
-      };
-    },
+  constructor(
+    private actions$: Actions,
+    private flightService: FlightService) {}
 
-    onError: (action: LoadData, error) => {
-      console.error('Error', error);
-    }
-  });
-
-  constructor(private actions: Actions, private dataPersistence: DataPersistence<FlightBookingState>) {}
-*/}
+  @Effect()
+  flightLoad = this.actions$.pipe(
+    filter(a => a instanceof FlightsLoadAction),
+    switchMap( (a: FlightsLoadAction) => this.flightService.find(a.from, a.to, a.urgent) ),
+    map(flights => new FlightsLoadedAction(flights))
+  );
+}
