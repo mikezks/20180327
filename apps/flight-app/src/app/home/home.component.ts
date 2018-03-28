@@ -1,5 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import { AppState } from '../+state/app.interfaces';
+import { Store } from '@ngrx/store';
+import { IncreaseByAction } from '../+state/app.actions';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +12,13 @@ import {ActivatedRoute} from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+  count$: Observable<number>;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<AppState>
+  ) {
+    this.count$ = this.store.select(state => state.app.count);
   }
 
   needsLogin: boolean;
@@ -31,5 +40,7 @@ export class HomeComponent implements OnInit {
     this._userName = '';
   }
 
-
+  countUp() {
+    this.store.dispatch(new IncreaseByAction(1));
+  }
 }
