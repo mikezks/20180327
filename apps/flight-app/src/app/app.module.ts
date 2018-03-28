@@ -30,7 +30,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     FlightApiModule.forRoot(),
     SharedModule.forRoot(),
     RouterModule.forRoot([...APP_ROUTES], {...APP_EXTRA_OPTIONS}),
-    StoreModule.forRoot({app: appReducer}, {initialState: {app: appInitialState}}),
+    StoreModule.forRoot({app: appReducer }, {initialState: {app: appInitialState}}),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
