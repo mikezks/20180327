@@ -4,6 +4,7 @@ import { AppState } from '../+state/app.interfaces';
 import { Store } from '@ngrx/store';
 import { IncreaseByAction } from '../+state/app.actions';
 import { Observable } from 'rxjs/Observable';
+import { getCount } from '../+state/app.selectors';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private store: Store<AppState>
   ) {
-    this.count$ = this.store.select(state => state.app.count);
+    /*this.count$ = this.store.select(state => state.app.count);*/
+    this.count$ = this.store.select(getCount);
   }
 
   needsLogin: boolean;
