@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Flight} from '../models/flight';
 import {of} from 'rxjs/observable/of';
 import {flights} from '@flight-workspace/flight-api/src/services/flight.data';
-import { delay } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 
 @Injectable()
 export class FlightService {
@@ -19,6 +19,9 @@ export class FlightService {
 
   load(from: string, to: string, urgent: boolean): void {
     this.find(from, to, urgent)
+      .pipe(
+        tap(() => console.log('Server was called!'))
+      )
       .subscribe(
         flights => {
           this.flights = flights;
